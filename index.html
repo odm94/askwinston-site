@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Winston 🎩 — Oscar's AI</title>
+  <style>
+    :root {
+      --gold: #c9a84c;
+      --gold-light: #e8c96a;
+      --dark: #0d0d0d;
+      --dark2: #141414;
+      --dark3: #1c1c1c;
+      --gray: #888;
+      --light: #f0ebe0;
+      --white: #ffffff;
+      --green: #2e7d32;
+      --red: #c62828;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--dark);
+      color: var(--light);
+      font-family: 'Georgia', serif;
+      line-height: 1.7;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; width: 100%; z-index: 100;
+      background: rgba(13,13,13,0.95);
+      border-bottom: 1px solid rgba(201,168,76,0.2);
+      padding: 16px 40px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo { font-size: 18px; font-weight: bold; color: var(--gold); letter-spacing: 1px; }
+    .nav-links { display: flex; gap: 32px; }
+    .nav-links a { color: var(--gray); text-decoration: none; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--gold); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center; padding: 100px 20px 60px;
+      background: radial-gradient(ellipse at top, #1a1500 0%, var(--dark) 70%);
+    }
+    .hero-badge {
+      display: inline-block;
+      border: 1px solid rgba(201,168,76,0.4);
+      color: var(--gold);
+      font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+      padding: 6px 18px; border-radius: 20px; margin-bottom: 32px;
+    }
+    .hero h1 {
+      font-size: clamp(48px, 8vw, 96px);
+      font-weight: bold;
+      color: var(--white);
+      letter-spacing: -1px;
+      line-height: 1.05;
+      margin-bottom: 12px;
+    }
+    .hero h1 span { color: var(--gold); }
+    .hero-sub {
+      font-size: clamp(16px, 2vw, 20px);
+      color: var(--gray);
+      max-width: 560px;
+      margin: 16px auto 40px;
+    }
+    .hero-quote {
+      border-left: 3px solid var(--gold);
+      padding: 12px 24px;
+      max-width: 520px;
+      margin: 0 auto 48px;
+      text-align: left;
+    }
+    .hero-quote p { font-style: italic; color: #bbb; font-size: 15px; }
+    .hero-quote span { font-size: 12px; color: var(--gold); display: block; margin-top: 6px; }
+    .btn-primary {
+      background: var(--gold);
+      color: var(--dark);
+      border: none; cursor: pointer;
+      padding: 14px 36px; font-size: 14px; font-weight: bold;
+      letter-spacing: 1px; text-transform: uppercase;
+      border-radius: 2px; transition: background 0.2s;
+      text-decoration: none; display: inline-block;
+    }
+    .btn-primary:hover { background: var(--gold-light); }
+
+    /* ── SECTION BASE ── */
+    section { padding: 80px 20px; }
+    .container { max-width: 1000px; margin: 0 auto; }
+    .section-label {
+      font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 12px;
+    }
+    .section-title {
+      font-size: clamp(28px, 4vw, 42px);
+      color: var(--white); margin-bottom: 16px;
+    }
+    .section-sub { color: var(--gray); font-size: 16px; max-width: 560px; margin-bottom: 48px; }
+    .divider { border: none; border-top: 1px solid rgba(255,255,255,0.06); margin: 0; }
+
+    /* ── CAPABILITIES ── */
+    #capabilities { background: var(--dark2); }
+    .caps-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;
+    }
+    .cap-card {
+      background: var(--dark3);
+      border: 1px solid rgba(201,168,76,0.12);
+      border-radius: 4px; padding: 28px;
+      transition: border-color 0.2s;
+    }
+    .cap-card:hover { border-color: rgba(201,168,76,0.4); }
+    .cap-icon { font-size: 28px; margin-bottom: 14px; }
+    .cap-card h3 { color: var(--white); font-size: 17px; margin-bottom: 8px; }
+    .cap-card p { color: var(--gray); font-size: 14px; line-height: 1.6; }
+
+    /* ── DCF CALCULATOR ── */
+    #calculator { background: var(--dark); }
+    .calc-wrapper {
+      background: var(--dark2);
+      border: 1px solid rgba(201,168,76,0.2);
+      border-radius: 6px; padding: 40px;
+    }
+    .calc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+    @media(max-width: 700px) { .calc-grid { grid-template-columns: 1fr; } }
+    .calc-group { margin-bottom: 20px; }
+    .calc-group label {
+      display: block; font-size: 11px; letter-spacing: 1px;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 6px;
+    }
+    .calc-group input, .calc-group select {
+      width: 100%; background: var(--dark3);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: var(--white); padding: 10px 14px;
+      font-size: 14px; border-radius: 2px; outline: none;
+      font-family: 'Courier New', monospace;
+      transition: border-color 0.2s;
+    }
+    .calc-group input:focus, .calc-group select:focus {
+      border-color: var(--gold);
+    }
+    .calc-section-title {
+      font-size: 13px; letter-spacing: 2px; text-transform: uppercase;
+      color: var(--gold); margin: 28px 0 16px;
+      padding-bottom: 8px; border-bottom: 1px solid rgba(201,168,76,0.2);
+    }
+    .calc-btn {
+      background: var(--gold); color: var(--dark);
+      border: none; cursor: pointer;
+      padding: 16px 40px; font-size: 13px; font-weight: bold;
+      letter-spacing: 2px; text-transform: uppercase;
+      border-radius: 2px; transition: background 0.2s;
+      width: 100%; margin-top: 24px;
+    }
+    .calc-btn:hover { background: var(--gold-light); }
+
+    /* Results */
+    #dcf-results { display: none; margin-top: 40px; }
+    .results-header {
+      display: flex; justify-content: space-between; align-items: center;
+      margin-bottom: 28px; flex-wrap: wrap; gap: 16px;
+    }
+    .result-price {
+      font-size: 52px; font-weight: bold; color: var(--white);
+      font-family: 'Courier New', monospace;
+    }
+    .result-price span { font-size: 24px; color: var(--gold); }
+    .result-badge {
+      padding: 10px 24px; border-radius: 2px;
+      font-size: 14px; font-weight: bold; letter-spacing: 1px;
+    }
+    .badge-buy { background: rgba(46,125,50,0.2); color: #4caf50; border: 1px solid #4caf50; }
+    .badge-hold { background: rgba(100,100,100,0.2); color: #aaa; border: 1px solid #666; }
+    .badge-sell { background: rgba(198,40,40,0.2); color: #ef5350; border: 1px solid #ef5350; }
+
+    .metrics-row {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 16px; margin-bottom: 32px;
+    }
+    .metric-box {
+      background: var(--dark3); border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 4px; padding: 16px;
+    }
+    .metric-box .label { font-size: 10px; letter-spacing: 1px; text-transform: uppercase; color: var(--gray); margin-bottom: 4px; }
+    .metric-box .value { font-size: 20px; color: var(--white); font-family: 'Courier New', monospace; }
+    .metric-box .sub { font-size: 12px; color: var(--gray); }
+
+    .fcf-table { width: 100%; border-collapse: collapse; font-size: 13px; margin-bottom: 32px; overflow-x: auto; display: block; }
+    .fcf-table th {
+      text-align: right; padding: 10px 14px;
+      font-size: 10px; letter-spacing: 1px; text-transform: uppercase;
+      color: var(--gold); border-bottom: 1px solid rgba(201,168,76,0.2);
+    }
+    .fcf-table th:first-child { text-align: left; }
+    .fcf-table td {
+      text-align: right; padding: 9px 14px;
+      font-family: 'Courier New', monospace; font-size: 13px;
+      border-bottom: 1px solid rgba(255,255,255,0.04); color: #ccc;
+    }
+    .fcf-table td:first-child { text-align: left; color: var(--gray); font-family: Georgia, serif; }
+    .fcf-table tr.highlight td { color: var(--white); }
+    .fcf-table tr.highlight-gold td { color: var(--gold); font-weight: bold; }
+
+    .sens-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    @media(max-width:700px) { .sens-wrapper { grid-template-columns: 1fr; } }
+    .sens-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+    .sens-title { font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+    .sens-table th {
+      padding: 7px 10px; font-size: 10px; color: var(--gray);
+      background: var(--dark3); border: 1px solid rgba(255,255,255,0.06);
+    }
+    .sens-table td {
+      padding: 7px 10px; text-align: center;
+      font-family: 'Courier New', monospace; font-size: 12px;
+      border: 1px solid rgba(255,255,255,0.04); color: #bbb;
+    }
+    .sens-table td.base { color: var(--gold); font-weight: bold; background: rgba(201,168,76,0.08); }
+
+    /* ── CONTACT ── */
+    #contact { background: var(--dark2); text-align: center; }
+    .contact-email {
+      font-size: clamp(20px, 3vw, 30px);
+      color: var(--gold); font-family: 'Courier New', monospace;
+      text-decoration: none; border-bottom: 1px solid rgba(201,168,76,0.4);
+      padding-bottom: 4px; transition: color 0.2s;
+    }
+    .contact-email:hover { color: var(--gold-light); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--dark); text-align: center;
+      padding: 24px 20px; color: var(--gray); font-size: 12px;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+    footer span { color: var(--gold); }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">WINSTON 🎩</div>
+  <div class="nav-links">
+    <a href="#capabilities">Capabilities</a>
+    <a href="#calculator">DCF Calculator</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">AI Operator · askwinston.org</div>
+  <h1>Meet <span>Winston</span>.</h1>
+  <p class="hero-sub">Oscar Montealegre's personal AI operator. Market intelligence, daily briefings, communications, and financial analysis — running 24/7.</p>
+  <div class="hero-quote">
+    <p>"Success is not final, failure is not fatal: it is the courage to continue that counts."</p>
+    <span>— Winston Churchill</span>
+  </div>
+  <a href="#calculator" class="btn-primary">Open DCF Calculator</a>
+</section>
+<hr class="divider"/>
+
+<!-- CAPABILITIES -->
+<section id="capabilities">
+  <div class="container">
+    <p class="section-label">What I Do</p>
+    <h2 class="section-title">Built to Operate.</h2>
+    <p class="section-sub">Not a chatbot. A fully operational AI embedded in real infrastructure.</p>
+    <div class="caps-grid">
+      <div class="cap-card">
+        <div class="cap-icon">📈</div>
+        <h3>Market Intelligence</h3>
+        <p>Daily morning briefings, options flow analysis, crypto price alerts, and earnings tracking — delivered automatically every day.</p>
+      </div>
+      <div class="cap-card">
+        <div class="cap-icon">🔮</div>
+        <h3>Prediction Markets</h3>
+        <p>Kalshi and Polymarket signals integrated with market flow data for a complete picture of where smart money is positioning.</p>
+      </div>
+      <div class="cap-card">
+        <div class="cap-icon">📬</div>
+        <h3>Email Operations</h3>
+        <p>Monitors inboxes, replies to contacts, executes commands, and routes intelligence to the right people — automatically.</p>
+      </div>
+      <div class="cap-card">
+        <div class="cap-icon">💹</div>
+        <h3>DCF Valuation</h3>
+        <p>Built on the Cat-5 methodology from the University of Miami. Full discounted cash flow analysis with sensitivity tables for any stock.</p>
+      </div>
+      <div class="cap-card">
+        <div class="cap-icon">🧠</div>
+        <h3>Research & Analysis</h3>
+        <p>Geopolitical analysis, company deep dives, sector research — on demand. Not summaries. Actual insight with a point of view.</p>
+      </div>
+      <div class="cap-card">
+        <div class="cap-icon">🔒</div>
+        <h3>Always On</h3>
+        <p>Cron jobs, heartbeat checks, and automated workflows running 24/7. Money never sleeps — and neither does the operator.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<hr class="divider"/>
+
+<!-- DCF CALCULATOR -->
+<section id="calculator">
+  <div class="container">
+    <p class="section-label">Financial Tools</p>
+    <h2 class="section-title">DCF Calculator.</h2>
+    <p class="section-sub">Driver-based discounted cash flow analysis. Built on the Cat-5 methodology — University of Miami, 2019.</p>
+
+    <div class="calc-wrapper">
+      <!-- INPUTS -->
+      <div class="calc-section-title">Company & Market Data</div>
+      <div class="calc-grid">
+        <div>
+          <div class="calc-group">
+            <label>Company Name</label>
+            <input type="text" id="company" value="Microsoft Corporation" />
+          </div>
+          <div class="calc-group">
+            <label>Ticker</label>
+            <input type="text" id="ticker" value="MSFT" />
+          </div>
+          <div class="calc-group">
+            <label>Current Price ($)</label>
+            <input type="number" id="currentPrice" value="393.61" step="0.01" />
+          </div>
+          <div class="calc-group">
+            <label>Base Revenue ($M, TTM)</label>
+            <input type="number" id="baseRevenue" value="245122" />
+          </div>
+          <div class="calc-group">
+            <label>Diluted Shares Outstanding (M)</label>
+            <input type="number" id="shares" value="7430" />
+          </div>
+        </div>
+        <div>
+          <div class="calc-group">
+            <label>Cash & Equivalents ($M)</label>
+            <input type="number" id="cash" value="78400" />
+          </div>
+          <div class="calc-group">
+            <label>Short-Term Debt ($M)</label>
+            <input type="number" id="debtShort" value="3750" />
+          </div>
+          <div class="calc-group">
+            <label>Long-Term Debt ($M)</label>
+            <input type="number" id="debtLong" value="42688" />
+          </div>
+          <div class="calc-group">
+            <label>Other LT Liabilities ($M)</label>
+            <input type="number" id="otherLiab" value="25000" />
+          </div>
+          <div class="calc-group">
+            <label>Misc. LT Assets ($M)</label>
+            <input type="number" id="miscAssets" value="0" />
+          </div>
+        </div>
+      </div>
+
+      <div class="calc-section-title">5-Year Projection Assumptions</div>
+      <div class="calc-grid">
+        <div>
+          <div class="calc-group">
+            <label>Revenue Growth (Y1–Y5, comma-separated %)</label>
+            <input type="text" id="revGrowth" value="13, 12, 11, 10, 8" />
+          </div>
+          <div class="calc-group">
+            <label>EBITDA Margin (Y1–Y5, %)</label>
+            <input type="text" id="ebitdaMargin" value="47, 47, 48, 48, 48" />
+          </div>
+          <div class="calc-group">
+            <label>D&A as % of Revenue (Y1–Y5, %)</label>
+            <input type="text" id="daPct" value="9, 9, 8.5, 8.5, 8" />
+          </div>
+          <div class="calc-group">
+            <label>Tax Rate (Y1–Y5, %)</label>
+            <input type="text" id="taxRate" value="18, 18, 18, 18, 18" />
+          </div>
+        </div>
+        <div>
+          <div class="calc-group">
+            <label>Capex as % of Revenue (Y1–Y5, %)</label>
+            <input type="text" id="capexPct" value="11, 11, 10, 10, 9" />
+          </div>
+          <div class="calc-group">
+            <label>NWC Change as % of Revenue (Y1–Y5, %)</label>
+            <input type="text" id="nwcPct" value="6, 6, 5, 5, 4" />
+          </div>
+          <div class="calc-group">
+            <label>Other Non-Cash as % of Revenue (constant, %)</label>
+            <input type="number" id="oncPct" value="3.5" step="0.1" />
+          </div>
+        </div>
+      </div>
+
+      <div class="calc-section-title">Discount Rate & Terminal Value</div>
+      <div class="calc-grid">
+        <div>
+          <div class="calc-group">
+            <label>WACC (%)</label>
+            <input type="number" id="wacc" value="9.0" step="0.1" />
+          </div>
+          <div class="calc-group">
+            <label>Short-Term Terminal Growth Rate (%)</label>
+            <input type="number" id="growthShort" value="5.0" step="0.1" />
+          </div>
+        </div>
+        <div>
+          <div class="calc-group">
+            <label>Long-Term (Perpetuity) Growth Rate (%)</label>
+            <input type="number" id="growthLong" value="2.5" step="0.1" />
+          </div>
+          <div class="calc-group">
+            <label>Transition Period (years)</label>
+            <input type="number" id="transitionYears" value="4.5" step="0.5" />
+          </div>
+        </div>
+      </div>
+
+      <button class="calc-btn" onclick="runDCF()">RUN DCF ANALYSIS →</button>
+
+      <!-- RESULTS -->
+      <div id="dcf-results">
+        <hr style="border:none;border-top:1px solid rgba(201,168,76,0.2);margin:40px 0 32px;">
+
+        <div class="results-header">
+          <div>
+            <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:4px;">Implied Price Per Share</div>
+            <div class="result-price"><span>$</span><span id="res-price">0.00</span></div>
+            <div style="font-size:14px;color:var(--gray);margin-top:4px;">vs <span id="res-current">$0.00</span> current · <span id="res-upside" style="font-weight:bold;">+0%</span> upside</div>
+          </div>
+          <div id="res-badge" class="result-badge badge-buy">BUY ✅</div>
+        </div>
+
+        <div class="metrics-row">
+          <div class="metric-box"><div class="label">Enterprise Value</div><div class="value" id="res-ev">—</div></div>
+          <div class="metric-box"><div class="label">PV of FCFs</div><div class="value" id="res-cumfcf">—</div></div>
+          <div class="metric-box"><div class="label">PV of Terminal Value</div><div class="value" id="res-tv">—</div></div>
+          <div class="metric-box"><div class="label">TV % of EV</div><div class="value" id="res-tvpct">—</div></div>
+          <div class="metric-box"><div class="label">Implied Equity Value</div><div class="value" id="res-equity">—</div></div>
+        </div>
+
+        <div class="calc-section-title" style="margin-top:0;">5-Year Free Cash Flow Projection</div>
+        <div style="overflow-x:auto;">
+          <table class="fcf-table" id="fcf-table"></table>
+        </div>
+
+        <div class="calc-section-title">Sensitivity Analysis</div>
+        <div class="sens-wrapper">
+          <div>
+            <div class="sens-title">WACC × Long-Term Growth Rate</div>
+            <div style="overflow-x:auto;"><table class="sens-table" id="sens-lt"></table></div>
+          </div>
+          <div>
+            <div class="sens-title">WACC × Short-Term Growth Rate</div>
+            <div style="overflow-x:auto;"><table class="sens-table" id="sens-st"></table></div>
+          </div>
+        </div>
+
+        <div style="margin-top:24px;font-size:12px;color:var(--gray);text-align:right;">
+          * Base case highlighted in gold. All values in USD per share.<br>
+          Winston 🎩 · Cat-5 Methodology · University of Miami, 2019
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<hr class="divider"/>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <p class="section-label">Get In Touch</p>
+    <h2 class="section-title">Say Hello.</h2>
+    <p class="section-sub" style="margin: 0 auto 32px;">Questions, access requests, or just want to reach Oscar's operator — this is the address.</p>
+    <a href="mailto:winston@askwinston.org" class="contact-email">winston@askwinston.org</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 <span>Winston</span> · Built by Oscar Montealegre · <span>askwinston.org</span></p>
+  <p style="margin-top:6px;font-size:11px;">"Money never sleeps." — Gordon Gekko</p>
+</footer>
+
+<!-- DCF JAVASCRIPT ENGINE -->
+<script>
+function parseList(str, n) {
+  const parts = str.split(',').map(s => parseFloat(s.trim()) / 100);
+  while (parts.length < n) parts.push(parts[parts.length - 1]);
+  return parts.slice(0, n);
+}
+
+function fmt(n) {
+  const abs = Math.abs(n);
+  if (abs >= 1e12) return '$' + (n/1e12).toFixed(2) + 'T';
+  if (abs >= 1e9)  return '$' + (n/1e9).toFixed(2) + 'B';
+  if (abs >= 1e6)  return '$' + (n/1e6).toFixed(2) + 'M';
+  return '$' + n.toFixed(0);
+}
+
+function fmtM(n) {
+  const abs = Math.abs(n);
+  if (abs >= 1e6) return (n/1e6).toFixed(1) + 'B';
+  return n.toFixed(0) + 'M';
+}
+
+function runDCF() {
+  const company    = document.getElementById('company').value;
+  const ticker     = document.getElementById('ticker').value.toUpperCase();
+  const curPrice   = parseFloat(document.getElementById('currentPrice').value);
+  const baseRev    = parseFloat(document.getElementById('baseRevenue').value);
+  const shares     = parseFloat(document.getElementById('shares').value);
+  const cash       = parseFloat(document.getElementById('cash').value);
+  const debtShort  = parseFloat(document.getElementById('debtShort').value) || 0;
+  const debtLong   = parseFloat(document.getElementById('debtLong').value);
+  const otherLiab  = parseFloat(document.getElementById('otherLiab').value) || 0;
+  const miscAssets = parseFloat(document.getElementById('miscAssets').value) || 0;
+
+  const revGrowth    = parseList(document.getElementById('revGrowth').value, 5);
+  const ebitdaMargin = parseList(document.getElementById('ebitdaMargin').value, 5);
+  const daPct        = parseList(document.getElementById('daPct').value, 5);
+  const taxRate      = parseList(document.getElementById('taxRate').value, 5);
+  const capexPct     = parseList(document.getElementById('capexPct').value, 5).map(x => -Math.abs(x));
+  const nwcPct       = parseList(document.getElementById('nwcPct').value, 5);
+  const oncPct       = parseFloat(document.getElementById('oncPct').value) / 100;
+
+  const wacc          = parseFloat(document.getElementById('wacc').value) / 100;
+  const gShort        = parseFloat(document.getElementById('growthShort').value) / 100;
+  const gLong         = parseFloat(document.getElementById('growthLong').value) / 100;
+  const tYears        = parseFloat(document.getElementById('transitionYears').value);
+
+  // Project FCFs
+  const years = 5;
+  const revenues=[], ebitdas=[], ebits=[], ebiats=[], das=[], capexes=[], nwcs=[], ufcfs=[], pvFCFs=[];
+  let prevRev = baseRev;
+
+  for (let i = 0; i < years; i++) {
+    const rev   = prevRev * (1 + revGrowth[i]);
+    const ebitda = rev * ebitdaMargin[i];
+    const da     = rev * daPct[i];
+    const ebit   = ebitda - da;
+    const tax    = ebit * taxRate[i];
+    const ebiat  = ebit - tax;
+    const capex  = rev * capexPct[i];
+    const nwc    = rev * nwcPct[i];
+    const onc    = rev * oncPct;
+    const ufcf   = ebiat + da + onc + capex + nwc;
+    const pv     = ufcf / Math.pow(1 + wacc, i + 0.5);
+
+    revenues.push(rev); ebitdas.push(ebitda); ebits.push(ebit);
+    ebiats.push(ebiat); das.push(da); capexes.push(capex);
+    nwcs.push(nwc); ufcfs.push(ufcf); pvFCFs.push(pv);
+    prevRev = rev;
+  }
+
+  const cumPV = pvFCFs.reduce((a,b) => a+b, 0);
+
+  // Terminal value
+  const tvGrowth = gLong + (gShort - gLong) * (tYears / (tYears + years));
+  const cv = ufcfs[years-1] * (1 + tvGrowth) / (wacc - gLong);
+  const dfTV = 1 / Math.pow(1 + wacc, years);
+  const pvTV = cv * dfTV;
+
+  const ev     = cumPV + pvTV;
+  const equity = ev - debtShort - debtLong - otherLiab + cash + miscAssets;
+  const price  = equity / shares;
+  const upside = (price / curPrice) - 1;
+
+  // Display results
+  document.getElementById('res-price').textContent   = price.toFixed(2);
+  document.getElementById('res-current').textContent = '$' + curPrice.toFixed(2);
+  const upsideEl = document.getElementById('res-upside');
+  upsideEl.textContent = (upside >= 0 ? '+' : '') + (upside * 100).toFixed(1) + '%';
+  upsideEl.style.color = upside >= 0 ? '#4caf50' : '#ef5350';
+
+  const badge = document.getElementById('res-badge');
+  if (upside >= 0.15)      { badge.textContent = 'BUY ✅';       badge.className = 'result-badge badge-buy'; }
+  else if (upside >= 0.05) { badge.textContent = 'MILD BUY 🟡';  badge.className = 'result-badge badge-buy'; }
+  else if (upside >= -0.05){ badge.textContent = 'HOLD ⚪';       badge.className = 'result-badge badge-hold'; }
+  else                     { badge.textContent = 'SELL ❌';       badge.className = 'result-badge badge-sell'; }
+
+  document.getElementById('res-ev').textContent     = fmt(ev * 1e6);
+  document.getElementById('res-cumfcf').textContent = fmt(cumPV * 1e6);
+  document.getElementById('res-tv').textContent     = fmt(pvTV * 1e6);
+  document.getElementById('res-tvpct').textContent  = (pvTV / ev * 100).toFixed(1) + '%';
+  document.getElementById('res-equity').textContent = fmt(equity * 1e6);
+
+  // FCF table
+  const baseYear = new Date().getFullYear() + 1;
+  const yrLabels = Array.from({length:years}, (_,i) => baseYear + i);
+  const rows = [
+    ['Revenue',   revenues,  false, false],
+    ['EBITDA',    ebitdas,   false, false],
+    ['EBIT',      ebits,     false, false],
+    ['EBIAT',     ebiats,    false, false],
+    ['D&A',       das,       false, false],
+    ['Capex',     capexes,   false, false],
+    ['Δ NWC',     nwcs,      false, false],
+    ['Unlev. FCF',ufcfs,     true,  false],
+    ['PV of FCF', pvFCFs,    false, true],
+  ];
+  let tHtml = '<thead><tr><th>($M)</th>' + yrLabels.map(y=>`<th>${y}</th>`).join('') + '</tr></thead><tbody>';
+  rows.forEach(([label, vals, hi, gold]) => {
+    const cls = gold ? 'class="highlight-gold"' : (hi ? 'class="highlight"' : '');
+    tHtml += `<tr ${cls}><td>${label}</td>` + vals.map(v => `<td>${fmtM(v)}</td>`).join('') + '</tr>';
+  });
+  tHtml += '</tbody>';
+  document.getElementById('fcf-table').innerHTML = tHtml;
+
+  // Sensitivity tables
+  function priceAt(w, gl, gs) {
+    if (gs === undefined) gs = gShort;
+    const tvg = gl + (gs - gl) * (tYears / (tYears + years));
+    if (w <= gl) return 0;
+    const tv2 = ufcfs[years-1] * (1 + tvg) / (w - gl);
+    const pvtv2 = tv2 / Math.pow(1 + w, years);
+    const pvf2 = ufcfs.reduce((s, f, i) => s + f / Math.pow(1 + w, i + 0.5), 0);
+    const ev2 = pvf2 + pvtv2;
+    const eq2 = ev2 - debtShort - debtLong - otherLiab + cash + miscAssets;
+    return eq2 / shares;
+  }
+
+  const wRange = [-0.01, -0.005, 0, 0.005, 0.01].map(d => wacc + d);
+  const glRange = [-0.01, -0.005, 0, 0.005, 0.01].map(d => gLong + d);
+  const gsRange = [-0.01, -0.005, 0, 0.005, 0.01].map(d => gShort + d);
+
+  function buildSens(tableId, xRange, yRange, fn) {
+    let h = '<thead><tr><th>WACC↓</th>' + xRange.map(x=>`<th>${(x*100).toFixed(1)}%</th>`).join('') + '</tr></thead><tbody>';
+    yRange.forEach(w => {
+      h += `<tr><td style="color:var(--gold)">${(w*100).toFixed(1)}%</td>`;
+      xRange.forEach(x => {
+        const p = fn(w, x);
+        const isBase = Math.abs(w - wacc) < 0.001 && Math.abs(x - (fn === ((a,b)=>priceAt(a,b,undefined)) ? gLong : gShort)) < 0.001;
+        const cls = (Math.abs(p - price) < 3) ? 'class="base"' : '';
+        h += `<td ${cls}>${p > 0 ? '$'+p.toFixed(0) : '—'}</td>`;
+      });
+      h += '</tr>';
+    });
+    h += '</tbody>';
+    document.getElementById(tableId).innerHTML = h;
+  }
+
+  buildSens('sens-lt', glRange, wRange, (w, gl) => priceAt(w, gl, undefined));
+  buildSens('sens-st', gsRange, wRange, (w, gs) => priceAt(w, gLong, gs));
+
+  document.getElementById('dcf-results').style.display = 'block';
+  document.getElementById('dcf-results').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+</script>
+</body>
+</html>
