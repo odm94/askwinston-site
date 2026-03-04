@@ -20,7 +20,28 @@
       "handle": "Silvio",
       "email": "Silviogalobuhler@gmail.com",
       "location": "Nicaragua",
-      "top5": []
+      "top5": [
+        {
+          "cigar": "MJ Solefly",
+          "comment": "Gifted by ODM. Amazing smooth cigar, creamy aftertaste."
+        },
+        {
+          "cigar": "Opus X 20th Anniversary God's Whisper",
+          "comment": "Gifted by ODM. Amazing smooth cigar, creamy, nutty, hints of pepper."
+        },
+        {
+          "cigar": "Davidoff Chef Edition 2025",
+          "comment": "Creamy, floral, smooth \u2014 changing flavors throughout."
+        },
+        {
+          "cigar": "Padr\u00f3n 45 Years Aged",
+          "comment": "Chocolate, earthy, creamy taste when aged."
+        },
+        {
+          "cigar": "Davidoff Winston Churchill LE 2022",
+          "comment": "Creamy, smooth, nutty, leathery."
+        }
+      ]
     },
     {
       "name": "Juan Carlos Argenal",
