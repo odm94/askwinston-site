@@ -1,0 +1,33 @@
+{
+  "updated": "2026-03-04",
+  "members": [
+    {
+      "name": "Oscar Montealegre",
+      "handle": "Wolf of Cigars",
+      "email": "oscardanielmontealegre@gmail.com",
+      "location": "Miami, FL",
+      "top5": []
+    },
+    {
+      "name": "Alejandro Gallo",
+      "handle": "Alejandro",
+      "email": "agallo429@gmail.com",
+      "location": "Nicaragua",
+      "top5": []
+    },
+    {
+      "name": "Silvio Galo",
+      "handle": "Silvio",
+      "email": "Silviogalobuhler@gmail.com",
+      "location": "Nicaragua",
+      "top5": []
+    },
+    {
+      "name": "Juan Carlos Argenal",
+      "handle": "Vaca",
+      "email": "jargenal2@gmail.com",
+      "location": "Nicaragua",
+      "top5": []
+    }
+  ]
+}
