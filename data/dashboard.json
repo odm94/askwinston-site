@@ -1,0 +1,371 @@
+{
+  "generated": "2026-03-04T10:08:33.229371",
+  "open_items": [
+    {
+      "name": "1",
+      "status": "active",
+      "status_text": "X/Twitter API integration",
+      "notes": "\u2705 LIVE"
+    },
+    {
+      "name": "2",
+      "status": "active",
+      "status_text": "TrendSpider API key",
+      "notes": "\u23f3 Pending"
+    },
+    {
+      "name": "3",
+      "status": "active",
+      "status_text": "Grok API key (api.x.ai)",
+      "notes": "\u2705 RESOLVED"
+    },
+    {
+      "name": "4",
+      "status": "active",
+      "status_text": "Sean Carroll email",
+      "notes": "\u23f3 Pending"
+    },
+    {
+      "name": "5",
+      "status": "active",
+      "status_text": "Felipe Montealegre \u2014 Theia Research details",
+      "notes": "\u23f3 Partial"
+    },
+    {
+      "name": "6",
+      "status": "active",
+      "status_text": "Gmail API migration (OAuth 2.0)",
+      "notes": "\u23f3 On hold"
+    },
+    {
+      "name": "7",
+      "status": "active",
+      "status_text": "Intro email \u2014 Jason Martin",
+      "notes": "\u2705 SENT Mar 2"
+    },
+    {
+      "name": "1",
+      "status": "active",
+      "status_text": "Unusual Whales Pro API connected",
+      "notes": "\u2705 1:18 PM"
+    },
+    {
+      "name": "2",
+      "status": "active",
+      "status_text": "Flow Brief script built + tested",
+      "notes": "\u2705 2:55 PM"
+    },
+    {
+      "name": "3",
+      "status": "active",
+      "status_text": "Flow Brief crons live (8:15AM + 4:15PM M-F)",
+      "notes": "\u2705 3:00 PM"
+    },
+    {
+      "name": "4",
+      "status": "active",
+      "status_text": "2025 Robinhood tax doc analyzed",
+      "notes": "\u2705 1:30 PM"
+    },
+    {
+      "name": "5",
+      "status": "active",
+      "status_text": "People tab added to dashboard",
+      "notes": "\u2705 2:30 PM"
+    },
+    {
+      "name": "6",
+      "status": "active",
+      "status_text": "Jason Martin added (email: jasonmartin659@gmail.com)",
+      "notes": "\u2705"
+    },
+    {
+      "name": "7",
+      "status": "active",
+      "status_text": "Sean Carroll added (no email yet)",
+      "notes": "\u2705"
+    },
+    {
+      "name": "8",
+      "status": "active",
+      "status_text": "Sebastian \"Seeweed\" Briceno added",
+      "notes": "\u2705"
+    },
+    {
+      "name": "9",
+      "status": "active",
+      "status_text": "Intro email drafts created (Jason + Sebastian + Sean)",
+      "notes": "\u2705"
+    },
+    {
+      "name": "10",
+      "status": "active",
+      "status_text": "Flow email format \u2014 updated to Flow God style",
+      "notes": "\u2705 Done"
+    },
+    {
+      "name": "11",
+      "status": "active",
+      "status_text": "Nico Souto added \u2014 MEMORY.md + dashboard + intro email + EOD flow brief",
+      "notes": "\u2705 9:30 PM"
+    },
+    {
+      "name": "12",
+      "status": "active",
+      "status_text": "Earnings Tracker built \u2014 scripts/earnings_tracker.py, UW flow + X sentiment",
+      "notes": "\u2705 9:40 PM"
+    },
+    {
+      "name": "13",
+      "status": "active",
+      "status_text": "Cristina emailed \u2014 replied warmly with humor",
+      "notes": "\u2705 9:40 PM"
+    }
+  ],
+  "calendar": [
+    {
+      "date": "Mar 6\u201310",
+      "event": "\ud83d\udc15 Cafu Watch \u2014 Cristina in Bahamas",
+      "priority": "high"
+    },
+    {
+      "date": "Mar 8 12PM",
+      "event": "\u26f3 Golf \u2014 Trump Doral, Golden Palm (Nicola + Diego)",
+      "priority": "medium"
+    },
+    {
+      "date": "Mar 18 2PM",
+      "event": "\ud83c\udfe5 Dr. Perry Young (sinus)",
+      "priority": "medium"
+    },
+    {
+      "date": "Mar 24 11AM",
+      "event": "\ud83c\udfe6 JPMorgan monthly meeting",
+      "priority": "medium"
+    },
+    {
+      "date": "Apr 4",
+      "event": "\ud83d\udc95 Oscar + Cristina 1-Year Anniversary \u2b50",
+      "priority": "high"
+    }
+  ],
+  "todos": [
+    {
+      "text": "Call doctor \u2192 book bloodwork appointment _(flagged by Jessica \u2014 do today)_",
+      "done": false,
+      "priority": "low"
+    },
+    {
+      "text": "Buy a food scale _(Amazon or any store)_",
+      "done": false,
+      "priority": "low"
+    },
+    {
+      "text": "Eat more \u2014 increase daily food intake, track portions with scale",
+      "done": false,
+      "priority": "low"
+    },
+    {
+      "text": "MSP book of business \u2014 sales attack plan with Oli _(Mar 3 \u2014 build strategy to go after MSP accounts together)_",
+      "done": false,
+      "priority": "low"
+    },
+    {
+      "text": "Sinus Allergy Test \u2014 log to calendar once appointment is scheduled",
+      "done": false,
+      "priority": "low"
+    },
+    {
+      "text": "Cloud VM mirror \u2014 Set up DigitalOcean or Hetzner VPS (~$6/mo), mirror entire workspace, nightly git push offsite",
+      "done": false,
+      "priority": "high"
+    },
+    {
+      "text": "Offsite git backup \u2014 Push workspace repo to private GitHub repo nightly (cron)",
+      "done": false,
+      "priority": "high"
+    },
+    {
+      "text": "iCloud/Google Drive export \u2014 Key files (MEMORY.md, SOUL.md, USER.md, scripts/) as last-resort personal backup",
+      "done": false,
+      "priority": "high"
+    },
+    {
+      "text": "Recovery runbook \u2014 Document \"how to spin up Winston on a new machine in 20 min\" step by step",
+      "done": false,
+      "priority": "high"
+    }
+  ],
+  "people": [
+    {
+      "name": "Silvio 'Croc' Montealegre",
+      "role": "Oscar's Father \ud83d\udc51",
+      "email": "montealegresilvio@gmail.com",
+      "tag": "family"
+    },
+    {
+      "name": "Fernando Montealegre",
+      "role": "Brother / Best Man",
+      "email": "ferfermont@gmail.com",
+      "tag": "family"
+    },
+    {
+      "name": "Cristina",
+      "role": "Girlfriend \ud83d\udc95",
+      "email": "cristinasaraviah@gmail.com",
+      "tag": "personal"
+    },
+    {
+      "name": "Jason Martin",
+      "role": "Boss @ Kaseya (VP Collections)",
+      "email": "jasonmartin659@gmail.com",
+      "tag": "work"
+    },
+    {
+      "name": "Gabby Ludovico",
+      "role": "Right Hand / Ride or Die",
+      "email": "gabymludovico@gmail.com",
+      "tag": "work"
+    },
+    {
+      "name": "Natalia Medina",
+      "role": "Best Friend @ Kaseya",
+      "email": "natalialina.01@gmail.com",
+      "tag": "personal"
+    },
+    {
+      "name": "Alejandro Montealegre",
+      "role": "Cousin / Millville Fund",
+      "email": "alejandro.j.montealegre@gmail.com",
+      "tag": "family"
+    },
+    {
+      "name": "Felipe Montealegre",
+      "role": "Cousin / Theia Research",
+      "email": "felipen.montealegre@gmail.com",
+      "tag": "family"
+    },
+    {
+      "name": "Caelan 'Pizarro' Colburn",
+      "role": "Work Bestie / Markets",
+      "email": "caelan.c@gmail.com",
+      "tag": "personal"
+    },
+    {
+      "name": "Bernard Tefel",
+      "role": "Best Friend since 8th grade",
+      "email": "btefel95@gmail.com",
+      "tag": "personal"
+    },
+    {
+      "name": "Daniel Lovera",
+      "role": "Best Friend / UpShop",
+      "email": "loveradaniel90@gmail.com",
+      "tag": "personal"
+    },
+    {
+      "name": "Vanessa Rodriguez",
+      "role": "Collections Manager",
+      "email": "vrod85@gmail.com",
+      "tag": "work"
+    },
+    {
+      "name": "Sean Carroll",
+      "role": "EMEA+APAC Collections / Arsenal",
+      "email": "seancarrolldublin@gmail.com",
+      "tag": "work"
+    },
+    {
+      "name": "Juan Andres Marroquin",
+      "role": "First Hire @ Kaseya / Brother",
+      "email": "juanandresmarroquindiaz@gmail.com",
+      "tag": "work"
+    },
+    {
+      "name": "Amanda Dumont",
+      "role": "Kaseya CFO/COO Right Hand",
+      "email": "amandadumont4@gmail.com",
+      "tag": "work"
+    },
+    {
+      "name": "JD Briceno",
+      "role": "Cousin / Family Office / AI",
+      "email": "bricenojd@gmail.com",
+      "tag": "family"
+    },
+    {
+      "name": "Roland 'Frater' Cuculiza",
+      "role": "Cousin / Lifelong Friend",
+      "email": "Rolandcuculiza@gmail.com",
+      "tag": "family"
+    },
+    {
+      "name": "Johnny 'The Hulk' Osorio",
+      "role": "Mentee / Kaseya Best AM",
+      "email": "osoriojuang@gmail.com",
+      "tag": "work"
+    }
+  ],
+  "apis": [
+    {
+      "name": "Zoho SMTP",
+      "status": "live",
+      "note": "winston@askwinston.org"
+    },
+    {
+      "name": "Zoho IMAP",
+      "status": "live",
+      "note": "imappro.zoho.com:993"
+    },
+    {
+      "name": "Gmail OAuth2",
+      "status": "live",
+      "note": "winstonmontyllm@gmail.com"
+    },
+    {
+      "name": "Unusual Whales",
+      "status": "live",
+      "note": "Pro $315/mo \u2014 cancel Apr 2"
+    },
+    {
+      "name": "X/Twitter API",
+      "status": "live",
+      "note": "@REALODM \u2014 Pay Per Use"
+    },
+    {
+      "name": "CoinGecko",
+      "status": "live",
+      "note": "Free tier"
+    },
+    {
+      "name": "Yahoo Finance",
+      "status": "live",
+      "note": "Free tier"
+    },
+    {
+      "name": "Grok/xAI",
+      "status": "warn",
+      "note": "Cloudflare 1010 \u2014 key valid"
+    },
+    {
+      "name": "FRED API",
+      "status": "live",
+      "note": "Free tier"
+    },
+    {
+      "name": "Quiver Quant",
+      "status": "live",
+      "note": "$75/mo \u2014 renews Apr 3"
+    },
+    {
+      "name": "Kalshi",
+      "status": "warn",
+      "note": "No auth token configured"
+    },
+    {
+      "name": "Telegram Bot",
+      "status": "live",
+      "note": "@WinstonMontyBOT"
+    }
+  ]
+}
