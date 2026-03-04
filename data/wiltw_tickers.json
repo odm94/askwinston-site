@@ -1,0 +1,195 @@
+{
+  "updated": "2026-03-04",
+  "source": "13D Research & Strategy \u2014 WILTW (Nov 2022 \u2013 Dec 2024)",
+  "note": "25 reports analyzed. Tickers represent 13D's highest-conviction recurring picks.",
+  "tickers": [
+    {
+      "sym": "BTC",
+      "name": "Bitcoin",
+      "sector": "Crypto",
+      "conviction": 5,
+      "source": "coingecko",
+      "cg_id": "bitcoin",
+      "first_price": 73000,
+      "first_date": "Nov 8, 2024",
+      "hci_weight": "10.1%",
+      "thesis": "Nation-state accumulation thesis. Strategic reserve. Trump presidency = regulatory clarity. 10.1% max weighting in HCI. 'We are entering a new era of nation-state accumulation of Bitcoin.'"
+    },
+    {
+      "sym": "AEM",
+      "name": "Agnico Eagle Mines",
+      "sector": "Gold Miners",
+      "conviction": 5,
+      "source": "yahoo",
+      "first_price": 48.85,
+      "first_date": "Feb 22, 2024",
+      "hci_weight": "Full",
+      "thesis": "FCF more than doubled in 2024. $1.54B FCF in first 9 months. AISC margin $1,000\u2013$1,500/oz at $2,600+ gold. Operating leverage thesis confirmed in the numbers."
+    },
+    {
+      "sym": "AGI",
+      "name": "Alamos Gold",
+      "sector": "Gold Miners",
+      "conviction": 5,
+      "source": "yahoo",
+      "first_price": 11.75,
+      "first_date": "Feb 22, 2024",
+      "hci_weight": "Full",
+      "thesis": "FCF flipped from -$15.2M deficit to +$218.8M in 9 months. Lowest-cost miner in 13D HGAX Index. AISC margin now $1,000+/oz. Massive operating leverage."
+    },
+    {
+      "sym": "ORLA",
+      "name": "Orla Mining",
+      "sector": "Gold Miners",
+      "conviction": 5,
+      "source": "yahoo",
+      "first_price": 3.38,
+      "first_date": "Oct 19, 2023",
+      "hci_weight": "13D HGAX",
+      "thesis": "'Large enough to attract a major.' One of the lowest-cost gold producers. FCF more than doubled. Broke out to highest level Oct 2024. M&A target."
+    },
+    {
+      "sym": "GDX",
+      "name": "VanEck Gold Miners ETF",
+      "sector": "Gold Miners",
+      "conviction": 4,
+      "source": "yahoo",
+      "first_price": 39.03,
+      "first_date": "Oct 10, 2024",
+      "hci_weight": "Index proxy",
+      "thesis": "Senior gold miners at 43% P/NAV discount. Junior gold miners at 73% P/NAV discount. Breakout confirmed Oct 2024. HUI-to-gold ratio approaching 30-year nadir."
+    },
+    {
+      "sym": "SILJ",
+      "name": "Amplify Junior Silver Miners ETF",
+      "sector": "Silver",
+      "conviction": 5,
+      "source": "yahoo",
+      "first_price": null,
+      "first_date": "Mar 15, 2024",
+      "hci_weight": "3x",
+      "thesis": "Silver bull market historical analog: 1974-1980 silver +1,412%. 2008-2011 silver +440% vs gold +166%. 3x conviction since Aug 2024. Junior miners = maximum leverage to silver."
+    },
+    {
+      "sym": "SIL",
+      "name": "Global X Silver Miners ETF",
+      "sector": "Silver",
+      "conviction": 4,
+      "source": "yahoo",
+      "first_price": null,
+      "first_date": "Nov 7, 2024",
+      "hci_weight": "Silver Strategy",
+      "thesis": "Broader silver miner exposure. Catch-up trade to gold. Silver as potential FX reserve asset in dedollarization thesis."
+    },
+    {
+      "sym": "COPX",
+      "name": "Global X Copper Miners ETF",
+      "sector": "Copper",
+      "conviction": 5,
+      "source": "yahoo",
+      "first_price": null,
+      "first_date": "Mar 13, 2024",
+      "hci_weight": "3x",
+      "thesis": "Copper demand up 70% by 2050. $250B capex gap 2024\u20132035 (BHP). Recycled copper will disappoint. 3x conviction since March 2024. Technical breakout confirmed Oct 2024."
+    },
+    {
+      "sym": "BHP",
+      "name": "BHP Group",
+      "sector": "Copper",
+      "conviction": 4,
+      "source": "yahoo",
+      "first_price": 52.76,
+      "first_date": "Dec 5, 2024",
+      "hci_weight": "Watchlist",
+      "thesis": "World's premier copper miner. Deep dive from Escondida mine conference. 15% production decline from existing mines. $250B capex gap. Direct play on structural copper deficit."
+    },
+    {
+      "sym": "OIH",
+      "name": "VanEck Oil Services ETF",
+      "sector": "Oil Services",
+      "conviction": 4,
+      "source": "yahoo",
+      "first_price": 272.6,
+      "first_date": "Oct 31, 2024",
+      "hci_weight": "7%",
+      "thesis": "OIH-to-crude ratio in 2.5-year uptrend. Bullish triangle consolidation. SLB acquiring Champion X = M&A consolidation signal. Oil services super-cycle. 7% in HCI."
+    },
+    {
+      "sym": "XOP",
+      "name": "SPDR Oil & Gas E&P ETF",
+      "sector": "Oil Services",
+      "conviction": 4,
+      "source": "yahoo",
+      "first_price": 153.29,
+      "first_date": "Oct 19, 2023",
+      "hci_weight": "Oil & Gas",
+      "thesis": "+115.4% since Feb 2021 vs ICLN -48.8%. Energy paradigm shift thesis. Structural energy demand not going away."
+    },
+    {
+      "sym": "CCJ",
+      "name": "Cameco",
+      "sector": "Uranium",
+      "conviction": 4,
+      "source": "yahoo",
+      "first_price": null,
+      "first_date": "Oct 19, 2023",
+      "hci_weight": "Uranium",
+      "thesis": "Largest non-state-owned uranium producer. World's highest-quality uranium mines (Athabasca Basin). Uranium supercycle. Trump nuclear policy = accelerant. AI energy demand nexus."
+    },
+    {
+      "sym": "AVAV",
+      "name": "AeroVironment",
+      "sector": "Defense",
+      "conviction": 4,
+      "source": "yahoo",
+      "first_price": null,
+      "first_date": "Apr 27, 2023",
+      "hci_weight": "Defense Index",
+      "thesis": "Switchblade loitering munitions. Dec 2024 pullback = buying opportunity. 13D Defense Index at 9.8x cash flow vs. historical median ~12x. Drone warfare secular trend."
+    },
+    {
+      "sym": "PLTR",
+      "name": "Palantir Technologies",
+      "sector": "Defense/AI",
+      "conviction": 4,
+      "source": "yahoo",
+      "first_price": null,
+      "first_date": "Aug 1, 2024",
+      "hci_weight": "Public Health/Defense",
+      "thesis": "Palantir AI Platform (AIP) model-agnostic. Connects LLMs with enterprise/government operational data. Leader in AI data analytics for government and commercial clients."
+    },
+    {
+      "sym": "AMD",
+      "name": "Advanced Micro Devices",
+      "sector": "Semiconductors",
+      "conviction": 3,
+      "source": "yahoo",
+      "first_price": null,
+      "first_date": "May 25, 2023",
+      "hci_weight": "Watchlist",
+      "thesis": "Leading GPU chip producer prioritizing energy efficiency. AMD's latest GPU 2.2x more efficient than prior generation. Answer to AI energy problem. AI-energy nexus thesis."
+    },
+    {
+      "sym": "NVO",
+      "name": "Novo Nordisk",
+      "sector": "Healthcare/GLP-1",
+      "conviction": 3,
+      "source": "yahoo",
+      "first_price": null,
+      "first_date": "Nov 14, 2024",
+      "hci_weight": "Watchlist",
+      "thesis": "Ozempic/Wegovy on track to become world's best-selling drug. GLP-1 expanding beyond diabetes to cardiovascular, sleep apnea, liver disease. Structural winner."
+    },
+    {
+      "sym": "LLY",
+      "name": "Eli Lilly",
+      "sector": "Healthcare/GLP-1",
+      "conviction": 3,
+      "source": "yahoo",
+      "first_price": 806.14,
+      "first_date": "Nov 14, 2024",
+      "hci_weight": "Watchlist",
+      "thesis": "GLP-1 expansion: sleep apnea, cardiovascular risk, liver disease. Will not 'bankrupt the healthcare system' \u2014 reduces downstream costs. Structural secular winner."
+    }
+  ]
+}
